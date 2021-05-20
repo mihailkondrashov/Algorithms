@@ -1,6 +1,6 @@
 package kondrashov.sorting;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 class SortingAlgorithmsTest {
 
@@ -17,69 +17,69 @@ class SortingAlgorithmsTest {
     void bubbleSortDescending() {
         Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.bubbleSort(temp,SortingType.Descending);
-        Assert.assertArrayEquals(temp, resultDescendingSortInteger);
+        Assertions.assertArrayEquals(temp, resultDescendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
     void bubbleSortAscending() {
         Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.bubbleSort(temp,SortingType.Ascending);
-        Assert.assertArrayEquals(temp, resultAscendingSortInteger);
+        Assertions.assertArrayEquals(temp, resultAscendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
     void selectionSortDescending() {
         Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.selectionSort(temp,SortingType.Descending);
-        Assert.assertArrayEquals(temp, resultDescendingSortInteger);
+        Assertions.assertArrayEquals(temp, resultDescendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
     void selectionSortAscending() {
         Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.selectionSort(temp,SortingType.Ascending);
-        Assert.assertArrayEquals(temp, resultAscendingSortInteger);
+        Assertions.assertArrayEquals(temp, resultAscendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
     void insertionSortDescending() {
         Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.insertionSort(temp,SortingType.Descending);
-        Assert.assertArrayEquals(temp, resultDescendingSortInteger);
+        Assertions.assertArrayEquals(temp, resultDescendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
     void insertionSortAscending() {
         Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.insertionSort(temp,SortingType.Ascending);
-        Assert.assertArrayEquals(temp, resultAscendingSortInteger);
+        Assertions.assertArrayEquals(temp, resultAscendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
     void mergeSortAscending() {
         int[] temp = testIntArray.clone();
         integerSortingAlgorithms.mergeSort(temp,SortingType.Ascending);
-        Assert.assertArrayEquals(temp, resultAscendingSortInt);
+        Assertions.assertArrayEquals(temp, resultAscendingSortInt);
     }
 
     @org.junit.jupiter.api.Test
     void mergeSortDescending() {
         int[] temp = testIntArray.clone();
         integerSortingAlgorithms.mergeSort(temp,SortingType.Descending);
-        Assert.assertArrayEquals(temp, resultDescendingSortInt);
+        Assertions.assertArrayEquals(temp, resultDescendingSortInt);
     }
 
     @org.junit.jupiter.api.Test
     void quickSortDescending() {
         Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.quickSort(temp,SortingType.Descending);
-        Assert.assertArrayEquals(temp, resultDescendingSortInteger);
+        Assertions.assertArrayEquals(temp, resultDescendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
     void quickSortAscending() {
         Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.quickSort(temp,SortingType.Ascending);
-        Assert.assertArrayEquals(temp, resultAscendingSortInteger);
+        Assertions.assertArrayEquals(temp, resultAscendingSortInteger);
     }
 }
