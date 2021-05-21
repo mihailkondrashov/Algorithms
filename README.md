@@ -1,4 +1,3 @@
 # Algorithms
-<hr>
 
-###Implementation of basic search and sorting algorithms 
+Implementation of basic search and sorting algorithms 
