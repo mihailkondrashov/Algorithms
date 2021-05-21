@@ -1,5 +1,6 @@
 package kondrashov.sorting;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class SortingAlgorithms <E extends Comparable<E>>{
@@ -92,9 +93,9 @@ public class SortingAlgorithms <E extends Comparable<E>>{
      * @param array Source array
      * @param sortingType Type of sorting (Ascending or Descending)
      */
-    public void mergeSort(int[] array, SortingType sortingType){
+    public void mergeSort(E[] array, SortingType sortingType){
         if(array != null){
-            int[] resultArray = mergeSortImpl(array, sortingType);
+            E[] resultArray = mergeSortImpl(array, sortingType);
             System.arraycopy(resultArray, 0 ,array, 0 , array.length);
         }
         else{
@@ -108,11 +109,11 @@ public class SortingAlgorithms <E extends Comparable<E>>{
      * @param sortingType Type of sorting (Ascending or Descending)
      * @return Sorting array
      */
-    private int[] mergeSortImpl(int[] array, SortingType sortingType) {
+    private E[] mergeSortImpl(E[] array, SortingType sortingType) {
         if(array.length > 1){
             int divider = (array.length)/2;
-            int[] leftArray = new int[divider];
-            int[] rightArray = new int [array.length - divider];
+            E[] leftArray = (E[]) Array.newInstance(array[0].getClass(),divider);
+            E[] rightArray = (E[]) Array.newInstance(array[0].getClass(),array.length - divider);
             System.arraycopy(array,0,leftArray,0,divider);
             System.arraycopy(array,divider,rightArray,0,array.length - divider);
 
@@ -130,27 +131,27 @@ public class SortingAlgorithms <E extends Comparable<E>>{
      * @param sortingType Type of sorting (Ascending or Descending)
      * @return Merged array
      */
-    private int[] mergeArrays(int[] firstArray, int[] secondArray, SortingType sortingType) {
+    private E[] mergeArrays(E[] firstArray, E[] secondArray, SortingType sortingType) {
         int flagLeftArray = 0;
         int flagRightArray = 0;
-        int [] resultArray = new int [(firstArray.length+secondArray.length)];
+        E [] resultArray = (E[]) Array.newInstance(firstArray[0].getClass(),(firstArray.length+secondArray.length));
         for(int i = 0; i < resultArray.length; i++){
             if(sortingType.equals(SortingType.Ascending)){
-                if((flagLeftArray < firstArray.length && flagRightArray < secondArray.length && firstArray[flagLeftArray] < secondArray[flagRightArray]) || flagRightArray == secondArray.length){
+                if((flagLeftArray < firstArray.length && flagRightArray < secondArray.length && firstArray[flagLeftArray].compareTo(secondArray[flagRightArray]) < 0) || flagRightArray == secondArray.length){
                     resultArray[i] = firstArray[flagLeftArray];
                     flagLeftArray++;
                 }
-                else if((flagRightArray < secondArray.length && flagLeftArray < firstArray.length && firstArray[flagLeftArray] > secondArray[flagRightArray]) || flagLeftArray == firstArray.length){
+                else if((flagRightArray < secondArray.length && flagLeftArray < firstArray.length && firstArray[flagLeftArray].compareTo(secondArray[flagRightArray])> 0) || flagLeftArray == firstArray.length){
                     resultArray[i] = secondArray[flagRightArray];
                     flagRightArray++;
                 }
             }
             else{
-                if((flagLeftArray < firstArray.length && flagRightArray < secondArray.length && firstArray[flagLeftArray] > secondArray[flagRightArray]) || flagRightArray == secondArray.length){
+                if((flagLeftArray < firstArray.length && flagRightArray < secondArray.length && firstArray[flagLeftArray].compareTo(secondArray[flagRightArray]) > 0)|| flagRightArray == secondArray.length){
                     resultArray[i] = firstArray[flagLeftArray];
                     flagLeftArray++;
                 }
-                else if((flagRightArray < secondArray.length && flagLeftArray < firstArray.length && firstArray[flagLeftArray] < secondArray[flagRightArray]) || flagLeftArray == firstArray.length){
+                else if((flagRightArray < secondArray.length && flagLeftArray < firstArray.length && firstArray[flagLeftArray].compareTo(secondArray[flagRightArray]) < 0) || flagLeftArray == firstArray.length){
                     resultArray[i] = secondArray[flagRightArray];
                     flagRightArray++;
                 }

@@ -57,16 +57,16 @@ class SortingAlgorithmsTest {
 
     @org.junit.jupiter.api.Test
     void mergeSortAscending() {
-        int[] temp = testIntArray.clone();
+        Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.mergeSort(temp,SortingType.Ascending);
-        Assertions.assertArrayEquals(temp, resultAscendingSortInt);
+        Assertions.assertArrayEquals(temp, resultAscendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
     void mergeSortDescending() {
-        int[] temp = testIntArray.clone();
+        Integer[] temp = testIntegerArray.clone();
         integerSortingAlgorithms.mergeSort(temp,SortingType.Descending);
-        Assertions.assertArrayEquals(temp, resultDescendingSortInt);
+        Assertions.assertArrayEquals(temp, resultDescendingSortInteger);
     }
 
     @org.junit.jupiter.api.Test
